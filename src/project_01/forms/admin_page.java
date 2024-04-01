@@ -4,8 +4,10 @@
  */
 package project_01.forms;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
-
+import java.awt.Component;
+import com.formdev.flatlaf.FlatLightLaf;
 /**
  *
  * @author troy
@@ -15,7 +17,9 @@ public class admin_page extends javax.swing.JFrame {
    
     public admin_page() {
         initComponents();
-         
+          setBackground(new Color(0,0,0,0));
+        
+       
          
         
         
@@ -38,7 +42,7 @@ public class admin_page extends javax.swing.JFrame {
         kGradientPanel3 = new keeptoo.KGradientPanel();
         register = new javax.swing.JLabel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
-        jhs = new javax.swing.JLabel();
+        Jhs = new javax.swing.JLabel();
         kGradientPanel5 = new keeptoo.KGradientPanel();
         ntp = new javax.swing.JLabel();
         kGradientPanel6 = new keeptoo.KGradientPanel();
@@ -65,7 +69,7 @@ public class admin_page extends javax.swing.JFrame {
             admin_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, admin_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 978, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 968, Short.MAX_VALUE)
                 .addContainerGap())
         );
         admin_panelLayout.setVerticalGroup(
@@ -73,10 +77,10 @@ public class admin_page extends javax.swing.JFrame {
             .addGroup(admin_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(756, Short.MAX_VALUE))
+                .addContainerGap(753, Short.MAX_VALUE))
         );
 
-        getContentPane().add(admin_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 990, 800));
+        getContentPane().add(admin_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 980, 800));
 
         kGradientPanel2.setBackground(new java.awt.Color(0, 0, 0));
         kGradientPanel2.setkEndColor(new java.awt.Color(0, 0, 204));
@@ -113,19 +117,19 @@ public class admin_page extends javax.swing.JFrame {
         kGradientPanel4.setkGradientFocus(10);
         kGradientPanel4.setkStartColor(new java.awt.Color(0, 153, 255));
 
-        jhs.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        jhs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jhs.setText("JUNIOR HIGH SCHOOL");
+        Jhs.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        Jhs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Jhs.setText("JUNIOR HIGH SCHOOL");
 
         javax.swing.GroupLayout kGradientPanel4Layout = new javax.swing.GroupLayout(kGradientPanel4);
         kGradientPanel4.setLayout(kGradientPanel4Layout);
         kGradientPanel4Layout.setHorizontalGroup(
             kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         kGradientPanel4Layout.setVerticalGroup(
             kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jhs, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+            .addComponent(Jhs, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
 
         kGradientPanel5.setFocusCycleRoot(true);
@@ -283,10 +287,10 @@ public class admin_page extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Jhs;
     private keeptoo.KGradientPanel admin_panel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jhs;
     private keeptoo.KGradientPanel kGradientPanel2;
     private keeptoo.KGradientPanel kGradientPanel3;
     private keeptoo.KGradientPanel kGradientPanel4;
