@@ -4,12 +4,28 @@
  */
 package project_01.forms;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author troy
  */
 public class filling_form extends javax.swing.JFrame {
-
+    private static final String username = "root" ;
+    private static final String password = "1234" ;
+    private static final String dataconn = "jdbc:mysql://127.0.0.1:3306/employees" ; 
+    
+     Connection sql = null;
+    PreparedStatement pst  = null;
+    ResultSet rs = null;
+    int q, i;
     /**
      * Creates new form filling_form
      */
@@ -17,6 +33,8 @@ public class filling_form extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +58,6 @@ public class filling_form extends javax.swing.JFrame {
         Department = new javax.swing.JTextField();
         Date = new javax.swing.JTextField();
         Plantilla = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         employee = new javax.swing.JLabel();
         id = new javax.swing.JLabel();
         firstname = new javax.swing.JLabel();
@@ -52,6 +69,8 @@ public class filling_form extends javax.swing.JFrame {
         Employee = new javax.swing.JComboBox<>();
         plantilla = new javax.swing.JLabel();
         register = new javax.swing.JButton();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -101,6 +120,7 @@ public class filling_form extends javax.swing.JFrame {
         setUndecorated(true);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel1.setkGradientFocus(10);
         kGradientPanel1.setkStartColor(new java.awt.Color(153, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -130,15 +150,6 @@ public class filling_form extends javax.swing.JFrame {
 
         Plantilla.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         Plantilla.setPreferredSize(new java.awt.Dimension(64, 17));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("CLOSE");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
 
         employee.setFont(new java.awt.Font("Lucida Bright", 3, 12)); // NOI18N
         employee.setText("Employee Type");
@@ -176,6 +187,35 @@ public class filling_form extends javax.swing.JFrame {
         plantilla.setText("PLANTILLA ITEM NUMBER:");
 
         register.setText("REGISTER");
+        register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerActionPerformed(evt);
+            }
+        });
+
+        kGradientPanel2.setkEndColor(new java.awt.Color(102, 204, 255));
+        kGradientPanel2.setkGradientFocus(10);
+        kGradientPanel2.setkStartColor(new java.awt.Color(0, 153, 255));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("CLOSE");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+        );
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -184,38 +224,38 @@ public class filling_form extends javax.swing.JFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(employee)
-                                    .addComponent(id)
-                                    .addComponent(firstname)
-                                    .addComponent(middlename)
-                                    .addComponent(lastname)
-                                    .addComponent(position)
-                                    .addComponent(department)
-                                    .addComponent(date)
-                                    .addComponent(plantilla))
-                                .addGap(18, 18, 18)
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Firstname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Middlename, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Lastname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Department, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Plantilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Employee, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 115, Short.MAX_VALUE)))
+                            .addComponent(employee)
+                            .addComponent(id)
+                            .addComponent(firstname)
+                            .addComponent(middlename)
+                            .addComponent(lastname)
+                            .addComponent(position)
+                            .addComponent(department)
+                            .addComponent(date)
+                            .addComponent(plantilla))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Firstname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Middlename, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Lastname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Department, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Plantilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Employee, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(register)
                 .addGap(231, 231, 231))
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,8 +305,8 @@ public class filling_form extends javax.swing.JFrame {
                         .addComponent(Plantilla, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(register)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -283,15 +323,104 @@ public class filling_form extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+private void UpdateDb1() {
+     try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String jdbcUrl = "jdbc:mysql://localhost:3306/your_database_name?useSSL=false&serverTimezone=UTC";
+        String username = "your_username";
+        String password = "your_password";
+        
+        sql = DriverManager.getConnection(jdbcUrl, username, password);
+        pst = sql.prepareStatement("SELECT * FROM jhs_employee");
+        rs = pst.executeQuery();
+        
+        while (rs.next()) {
+            int id = rs.getInt("ID_No_jhs");
+            String first_name = rs.getString("first_name");
+            String midle_name = rs.getString("midle_name");
+            String family_name = rs.getString("family_name");
+            String position = rs.getString("position");
+            String department = rs.getString("department");
+            String date = rs.getString("date_assumed");
+            String plantilla = rs.getString("item_No");
+           
+           
+        }
+    } catch (ClassNotFoundException | SQLException e) {
+        JOptionPane.showMessageDialog(null, e.getMessage());
+        e.printStackTrace(); 
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (pst != null) pst.close();
+            if (sql != null) sql.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        dispose();
+        admin_page adminpage = new admin_page();
+         adminpage.show();
+         
+         dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void EmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmployeeActionPerformed
+
+    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+        // TODO add your handling code here:
+        try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection sql = DriverManager.getConnection(dataconn, username, password);
+    PreparedStatement pst = sql.prepareStatement("INSERT INTO jhs_employee (first_name, midle_name, last_name, family_name, position,department, date_assumed, item_No) VALUES (?,?,?,?,?,?,?,?) ");
+    
+    String id = Id.getText();
+    String firstname = Firstname.getText();
+    String midlename = Middlename.getText();
+    String lastname = Lastname.getText();
+    String position = Position.getText();
+    String department = Department.getText();
+    String date = Date.getText();
+    String plantilla = Plantilla.getText();
+      
+
+    if(Id == null || Firstname == null || Middlename == null || Lastname == null || Position == null || Department == null || Date == null || Plantilla == null) {
+       
+        JOptionPane.showMessageDialog(this, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+   
+    
+    pst.executeUpdate();
+    JOptionPane.showMessageDialog(this, "Record Added");
+    
+    Id.setText("");
+    Firstname.setText("");
+    Middlename.setText("");
+    Lastname.setText("");
+    Position.setText("");
+    Department.setText("");
+    Date.setText("");
+    Plantilla.setText("");
+    Id.requestFocus();
+    
+    
+    
+    dispose();
+          
+} catch (ClassNotFoundException ex) {
+    ex.printStackTrace(); 
+    JOptionPane.showMessageDialog(this, "Database driver not found", "Error", JOptionPane.ERROR_MESSAGE);
+} catch (SQLException ex) {
+    ex.printStackTrace(); 
+    JOptionPane.showMessageDialog(this, "Error inserting record: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}  
+    }//GEN-LAST:event_registerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -350,6 +479,7 @@ public class filling_form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel lastname;
     private javax.swing.JLabel middlename;
     private javax.swing.JLabel plantilla;

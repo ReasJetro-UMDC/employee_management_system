@@ -4,7 +4,17 @@
  */
 package project_01.forms;
 
-import javax.swing.JFrame;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import java.sql.Statement;
+
+
+
 
 /**
  *
@@ -12,6 +22,17 @@ import javax.swing.JFrame;
  */
 public class ADMIN extends javax.swing.JFrame {
 
+    
+     private static final String username = "root" ;
+    private static final String password = "1234" ;
+    private static final String dataconn = "jdbc:mysql://127.0.0.1:3306/employees" ; 
+    
+    Connection sql = null;
+    PreparedStatement pst  = null;
+    ResultSet rs = null;
+    int q, i, id;
+    
+    
     /**
      * Creates new form ADMIN
      */
@@ -19,6 +40,8 @@ public class ADMIN extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,9 +55,10 @@ public class ADMIN extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel4 = new javax.swing.JLabel();
+        UserName = new javax.swing.JTextField();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -42,11 +66,15 @@ public class ADMIN extends javax.swing.JFrame {
         kGradientPanel1.setkEndColor(new java.awt.Color(102, 102, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(153, 204, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ADMIN");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        kGradientPanel2.setkEndColor(new java.awt.Color(30, 75, 222,80));
+        kGradientPanel2.setkGradientFocus(10);
+        kGradientPanel2.setkStartColor(new java.awt.Color(197, 233, 251));
+
+        jLabel4.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("LOG IN");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -59,23 +87,36 @@ public class ADMIN extends javax.swing.JFrame {
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
+
+        kGradientPanel3.setkEndColor(new java.awt.Color(102, 204, 255,80));
+        kGradientPanel3.setkGradientFocus(10);
+        kGradientPanel3.setkStartColor(new java.awt.Color(0, 153, 255));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("CLOSE");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_back_32px_1.png"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
             }
         });
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+        );
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -84,18 +125,18 @@ public class ADMIN extends javax.swing.JFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(147, 147, 147)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(UserName)
+                            .addComponent(jPassword))
+                        .addGap(0, 148, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,14 +144,13 @@ public class ADMIN extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1)
                 .addGap(54, 54, 54)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
+                .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,16 +170,42 @@ public class ADMIN extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-        admin_page Admin = new admin_page();
-       Admin.setVisible(true);
-       Admin.pack();
-       Admin.setLocationRelativeTo(null);
-       Admin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      var id = UserName.getText();
+var pass = jPassword.getText();
+try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection conn = DriverManager.getConnection(dataconn, username, password);
+    Statement stmt = conn.createStatement();
+    
+    ResultSet rs = stmt.executeQuery("SELECT * FROM admin WHERE username = '" + id + "' AND pass = '" + pass + "'");
+    if(rs.next()) {
+        JOptionPane.showMessageDialog(this, "Welcome to Dashboard");
+        
+        admin_page adminPage = new admin_page();
+        adminPage.setVisible(true);
+        
+        dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Invalid username or password");
+    }
+    
+    conn.close(); // close connection after using it
+} catch (ClassNotFoundException | SQLException e) {
+    JOptionPane.showMessageDialog(null, e.getMessage());
+    e.printStackTrace(); 
+}     
+
+
+        
+      
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        dispose();
+       HOME home = new HOME();
+         home.show();
+         
+         dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
@@ -178,12 +244,13 @@ public class ADMIN extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField UserName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField jPassword;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
     // End of variables declaration//GEN-END:variables
 }

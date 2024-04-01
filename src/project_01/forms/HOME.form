@@ -39,7 +39,7 @@
         <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="66" red="66" type="rgb"/>
         </Property>
-        <Property name="kGradientFocus" type="int" value="800"/>
+        <Property name="kGradientFocus" type="int" value="10"/>
         <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="cc" red="99" type="rgb"/>
         </Property>
@@ -50,32 +50,40 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
               <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="kGradientPanel3" max="32767" attributes="0"/>
-                      <Component id="kGradientPanel2" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="kGradientPanel4" min="-2" max="-2" attributes="0"/>
-                      <Component id="kGradientPanel5" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="194" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel3" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="kGradientPanel7" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel3" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="kGradientPanel3" max="32767" attributes="0"/>
+                              <Component id="kGradientPanel2" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="kGradientPanel5" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="192" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="kGradientPanel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                       <Group type="102" attributes="0">
-                          <Component id="exitbtn" min="-2" pref="76" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
                           <Component id="register" min="-2" pref="112" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="admin" min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="kGradientPanel6" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -95,16 +103,25 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="kGradientPanel3" min="-2" max="-2" attributes="0"/>
-                      <Component id="kGradientPanel4" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="kGradientPanel7" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="kGradientPanel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="kGradientPanel4" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="register" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="kGradientPanel6" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="register" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="admin" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                      <Component id="exitbtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -113,7 +130,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Emoji" size="18" style="1"/>
+              <Font name="Cambria" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="LUPON NATIONAL HIGH SCHOOL"/>
@@ -122,7 +139,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Emoji" size="14" style="1"/>
+              <Font name="Cambria" size="14" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Cambing Baratua St. ,  Publacion, Lupon, Davao Oriental"/>
@@ -131,7 +148,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Emoji" size="24" style="1"/>
+              <Font name="Cambria" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="ATTENDANCE MONITORING SYSTEM"/>
@@ -139,19 +156,19 @@
         </Component>
         <Container class="keeptoo.KGradientPanel" name="kGradientPanel2">
           <Properties>
-            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="66" red="66" type="rgb"/>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.awt.Color(30, 75, 222,80)" type="code"/>
             </Property>
-            <Property name="kGradientFocus" type="int" value="200"/>
+            <Property name="kGradientFocus" type="int" value="10"/>
             <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="cc" red="cc" type="rgb"/>
+              <Color blue="fb" green="e9" red="c5" type="rgb"/>
             </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="am_in" alignment="0" max="32767" attributes="0"/>
+                  <Component id="am_in" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -178,19 +195,19 @@
         </Container>
         <Container class="keeptoo.KGradientPanel" name="kGradientPanel3">
           <Properties>
-            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="66" red="66" type="rgb"/>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.awt.Color(30, 75, 222,80)" type="code"/>
             </Property>
-            <Property name="kGradientFocus" type="int" value="200"/>
+            <Property name="kGradientFocus" type="int" value="10"/>
             <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="cc" red="cc" type="rgb"/>
+              <Color blue="fb" green="e9" red="c5" type="rgb"/>
             </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="am_out" alignment="0" pref="150" max="32767" attributes="0"/>
+                  <Component id="am_out" alignment="1" pref="150" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -216,13 +233,19 @@
         </Container>
         <Container class="keeptoo.KGradientPanel" name="kGradientPanel4">
           <Properties>
-            <Property name="kGradientFocus" type="int" value="200"/>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.awt.Color(142, 253, 234,80)" type="code"/>
+            </Property>
+            <Property name="kGradientFocus" type="int" value="10"/>
+            <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="b7" red="4" type="rgb"/>
+            </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pm_out" alignment="0" pref="150" max="32767" attributes="0"/>
+                  <Component id="pm_out" alignment="1" pref="150" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -248,16 +271,19 @@
         </Container>
         <Container class="keeptoo.KGradientPanel" name="kGradientPanel5">
           <Properties>
-            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="0" red="0" type="rgb"/>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.awt.Color(142, 253, 234,80)" type="code"/>
             </Property>
-            <Property name="kGradientFocus" type="int" value="200"/>
+            <Property name="kGradientFocus" type="int" value="10"/>
+            <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="b7" red="4" type="rgb"/>
+            </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pm_in" alignment="0" pref="150" max="32767" attributes="0"/>
+                  <Component id="pm_in" alignment="1" pref="150" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -281,44 +307,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="exitbtn">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="EXIT"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                <BevelBorder bevelType="1">
-                  <Color PropertyName="shadowInner" blue="0" green="0" red="0" type="rgb"/>
-                </BevelBorder>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitbtnMouseClicked"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="admin">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="ADMIN"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                <BevelBorder bevelType="1">
-                  <Color PropertyName="shadowInner" blue="0" green="0" red="0" type="rgb"/>
-                </BevelBorder>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="adminMouseClicked"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="register">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
@@ -329,6 +317,82 @@
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registerMouseEntered"/>
           </Events>
         </Component>
+        <Container class="keeptoo.KGradientPanel" name="kGradientPanel6">
+          <Properties>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.awt.Color(80, 134, 245,80)" type="code"/>
+            </Property>
+            <Property name="kGradientFocus" type="int" value="10"/>
+            <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f2" green="d5" red="c0" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="admin" alignment="1" pref="67" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="admin" alignment="0" pref="41" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="admin">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Cambria" size="12" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="ADMIN"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="adminMouseClicked"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="keeptoo.KGradientPanel" name="kGradientPanel7">
+          <Properties>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.awt.Color(80, 134, 245,80)" type="code"/>
+            </Property>
+            <Property name="kGradientFocus" type="int" value="10"/>
+            <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f2" green="d5" red="c0" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="exitbtn" alignment="0" pref="67" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="exitbtn" alignment="0" pref="41" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="exitbtn">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Cambria" size="12" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="EXIT"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitbtnMouseClicked"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
